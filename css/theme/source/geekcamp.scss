@@ -52,6 +52,18 @@ $selectionColor: $backgroundColor;
     display: flex;
     align-items: center;
   }
+
+  em {
+    color: $headingColor;
+  }
+
+  li {
+    margin-bottom: 0.5em;
+  }
+
+  ul > li {
+    margin-top: 0.5em;
+  }
 }
 
 // Accessible emojis ---------------------------

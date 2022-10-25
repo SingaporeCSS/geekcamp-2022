@@ -367,6 +367,15 @@
   display: flex;
   align-items: center;
 }
+.reveal em {
+  color: indigo;
+}
+.reveal li {
+  margin-bottom: 0.5em;
+}
+.reveal ul > li {
+  margin-top: 0.5em;
+}
 
 span.emoji {
   font-family: "Apple Color Emoji", "Segoe UI Emoji";

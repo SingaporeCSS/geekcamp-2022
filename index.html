@@ -45,11 +45,111 @@
           
         </section>
 
+        <section>
+          <h2>If nested scrolling…</h2>
+          <p>Nested scrolling: when both the page and a component has overflow</p>
+          <small><a href="https://codepen.io/wgao19/pen/BaVBvEY">https://codepen.io/wgao19/pen/BaVBvEY</a></small>
+          <div class="l-double">
+            <figure>
+              <video controls style="max-height:50vh" src="img/nested-scroll.mp4"></video>
+              <figcaption style="font-size:75%">Basic example</figcaption>
+            </figure>
+            <figure>
+              <video controls style="max-height:50vh" src="img/nested-scroll-stuck.mp4"></video>
+              <figcaption style="font-size:75%">Component scroll blocks page scroll</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">
+            <p>Nested scrolling happens when both page and a component has scrolling. There will be a stacked scrollbar. When users scroll inside the component, the page will stay at the same scroll position. When the component scroll position is at its bottom, try scrolling the component in the same direction — usually, it will resume scrolling the page, which is intended, as the internal overflow has finished scrolling.</p>
+            <p>But a tricky situation can happen when it sometimes doesn’t scroll the outer page. When this happens, the page is “stuck” at that scroll position as it constantly triggers the scrolling of the inner component only. Us developers “power users” may realize that we’re stuck in the inner scrollbar and therefore we can carefully put our fingers in the margin area and manually trigger the page scrolling again. But users may not be able to learn to do that and hence get themselves trapped.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>…then how?</h2>
+          <p>First, ask yourself:</p>
+          <ul style="max-width:20em">
+            <li class="fragment">Is it <em>really</em> necessary?</li>
+            <li class="fragment">If it is —
+              <ul>
+                <li class="fragment">give the page <em>enough margin</em> so it is easier for users to scroll the page when intended</li>
+                <li class="fragment"><em>differentiate</em> inner component and page more clearly, display the scrollbar, etc.</li>
+              </ul>
+            </li>
+          </ul>
+          <aside class="notes">
+            <p>Before trying to tackle this problem perhaps we can first ask ourselves whether the situation is really necessary. Webpages intrinsically grow taller as the content grows, and phone screens are just a palm size, what’s behind the necessity of having some nested region encapsulating long content instead of letting it grow the page naturally?</p>
+            <p>And if the nested scrolling is deemed necessary, we need to help our users not get trapped in the stacked scrollbar situation. Differentiate the regions more clearly, and make sure the page has enough margin so users can scroll the page easily.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>If stacked scrolling due to iFrame…</h2>
+          insert video here
+          <aside class="notes">Sometimes the stacked scrolling may be introduced by iFrame. For example in the past two years all climbing gyms in town required booking. And usually they embed the booking system on their website using iFrame. After the iFrame loads page, which is usually a long table displaying timeslots, it introduces a scrollbar in the iFrame and that often trapped me there.</aside>
+        </section>
+
+        <section>
+          <h2>…then how?</h2>
+          <p>You can consider:</p>
+          <ul style="max-width:20em">
+            <li class="fragment">Statically setting the iFrame height to be a known height that is enough for its inner content</li>
+            <li class="fragment">Dynamically set iFrame height
+              <ul>
+                <li class="fragment">Better UI</li>
+                <li class="fragment">Has limitations though: if same domain - parent can set height according to content window height; if different domain - need <code>window.postMessage</code> to communicate height of the embedded site (see <a href="https://usefulangle.com/post/65/javascript-automatically-resize-iframe">Change Iframe Size Automatically to Fit Content & Prevent Scrollbars</a></li>
+              </ul>
+            </li>
+          </ul>
+          <aside class="notes">
+            <p>One naïve solution is the set the iFrame to be a sufficient height for its inner content. This works best if the inner content has fixed height. Otherwise we may leave the parent page with empty space when the inner content isn’t really that tall, and there’s no guarantee that the inner content won’t past our predetermined height.</p>
+            <p>A more programmatic solution is to set the height of the iFrame when the inner content of the embedded page finishes loading. This is not difficult if the inner page is of the same domain, in which case parent page has direct access to the embedded page’s scroll height via <code>contentWindow.body.scrollHeight</code>. Otherwise, the two pages need to communicate using <code>window.postMessage</code> which means the inner page has to implement the relevant event for the parent page to tap into to get its height.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Maybe you wanted things to scroll horizontally…</h2>
+          <div class="l-double">
+            <ul>
+              <li class="fragment">e.g., a row of images overflowing the width of mobile screen with free horizontal scrolling</li>
+              <li class="fragment">e.g., carousel where horizontal swiping triggers pagination</li>
+              <li class="fragment">It feels more robust if the scrolling is restricted to 1 direction at any time</li>
+            </ul>
+            <div>
+              <figure class="fragment">
+                <video controls style="max-height:50vh" src="img/bad-horizontal.mp4"></video>
+                <figcaption style="font-size:75%">Let's not do something like this</figcaption>
+              </figure>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>Nested scrolling can be of different direction. For example you may have a row of images to be displayed on a narrow screen by introducing horizontal scroll.</p>
+            <p>Personally speaking, I find this UI pretty acceptable — only when you don’t let me scroll both directions at the same time. See the first example, there’s a carousel, users are expected to swipe (or click) to paginate the carousel. But as they swipe, the page can move vertically as well. That doesn’t feel very stable.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>The <code>touch-action</code> property</h2>
+          <figure>
+            <video controls style="max-height:50vh" src="img/touch-action.mp4"></video>
+            <figcaption style="font-size:75%"><a href="https://huijing.github.io/touch-action/">https://huijing.github.io/touch-action/</a></figcaption>
+          </figure>
+          <aside class="notes">There is actually a CSS property called <code>touch-action</code> that lets us block the scrolling in the unintended direction when the component is intended to scroll only in one direction.</aside>
+        </section>
+
+        <section>
+          <h2>Panning done right</h2>
+          <figure>
+            <video controls style="max-height:50vh" src="img/good-panning.mp4"></video>
+            <figcaption style="font-size:75%">Credit: <a href="https://www.benjaminzander.org/">https://www.benjaminzander.org/</a></figcaption>
+          </figure>
+          <aside class="notes">Here’s a webpage with carousels that implement proper panning CSS. When you swipe left and right in the carousel sections, the page stays there and it feels more stable.</aside>
+        </section>
+
         <section style="text-align:left">
           <div class="title-wrapper" style="border:8px solid green;width:26%;padding:1em;margin-bottom:1.2em;border-radius:8px">
             <h1>10q <span style="display:block;width:max-content">errbadee!</span></h1>
           </div>
-
         </section>
       </div>
 
@@ -62,8 +162,8 @@
     <script src="plugin/highlight/highlight.js"></script>
     <script>
       Reveal.initialize({
-        width: 1600,
-        height: 900,
+        width: 1920,
+        height: 1080,
         hash: true,
         transition: 'fade',
         plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
