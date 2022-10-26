@@ -38,24 +38,30 @@
 
         <section>
           <h2>Did you even test on real devices?</h2>
-          <ul>
-            <li class="fragment">differences between real device vs devtools simulator:
+          
+        </section>
+
+        <section>
+          <h2>Did you even test on real devices? (continued)</h2>
+          <ul style="max-width:32em">
+            <li class="fragment">Differences between real device vs devtools simulator:
               <ul>
-                <li class="fragment">finger touches constitute coarse cursor, the real touches cannot be as fine as a mouse pointer in a desktop browser emulator</li>
-                <li class="fragment">certain behavior only present on mobile devices</li>
-                <li class="fragment">performance considerations</li>
-                <li class="fragment">collapsing headers & layout when keyboard activated causing content to overflow</li>
+                <li class="fragment">Finger touches constitute coarse cursor, the real touches cannot be as fine as a mouse pointer in a desktop browser emulator</li>
+                <li class="fragment">Certain behaviors only present on mobile devices</li>
+                <li class="fragment">Performance considerations</li>
+                <li class="fragment">Collapsing headers & layout when virtual keyboard activated causing content to overflow</li>
               </ul>
             </li>
           </ul>
         </section>
 
         <section>
-          <h2>Did you even test on real devices? (continued)</h2>
+          <h2>How to find the offending element?</h2>
+          
         </section>
 
         <section>
-          <h2>How to find the offending element?</h2>
+          <h2>If layout code gone wrong, then how?</h2>
           
         </section>
 
@@ -106,7 +112,7 @@
         <section>
           <h2>…then how?</h2>
           <p>You can consider:</p>
-          <ul style="max-width:20em">
+          <ul style="max-width:28em">
             <li class="fragment">Statically setting the iFrame height to be a known height that is enough for its inner content</li>
             <li class="fragment">Dynamically setting iFrame height
               <ul>
@@ -127,19 +133,30 @@
             <ul>
               <li class="fragment">e.g., a row of images overflowing the width of mobile screen with free horizontal scrolling</li>
               <li class="fragment">e.g., carousel where horizontal swiping triggers pagination</li>
-              <li class="fragment">It feels more robust if the scrolling is restricted to 1 direction at any time</li>
             </ul>
-            <div>
-              <figure class="fragment">
-                <video controls style="max-height:50vh" src="img/bad-horizontal.mp4"></video>
-                <figcaption style="font-size:75%">Let's not do something like this</figcaption>
-              </figure>
-            </div>
+            <div><video data-autoplay controls style="max-height:50vh" src="img/intentional-scroll.mp4"></video></div>
           </div>
-          <aside class="notes">
-            <p>Nested scrolling can be of different direction. For example you may have a row of images to be displayed on a narrow screen by introducing horizontal scroll.</p>
-            <p>Personally speaking, I find this UI pretty acceptable — only when you don’t let me scroll both directions at the same time. See the first example, there’s a carousel, users are expected to swipe (or click) to paginate the carousel. But as they swipe, the page can move vertically as well. That doesn’t feel very stable.</p>
-          </aside>
+          <aside class="notes">Nested scrolling can be of different direction. For example you may have a row of images to be displayed on a narrow screen by introducing horizontal scroll.</aside>
+        </section>
+
+        <section>
+          <h2>Can is can, but…</h2>
+          <p>Let's not do something like this:</p>
+          <figure class="fragment">
+            <video data-autoplay controls style="max-height:50vh" src="img/bad-horizontal.mp4"></video>
+            <figcaption style="font-size:75%">Let's not do something like this</figcaption>
+          </figure>
+          <aside class="notes">Personally speaking, I find this UI pretty acceptable — only when you don’t let me scroll both directions at the same time. See the first example, there’s a carousel, users are expected to swipe (or click) to paginate the carousel. But as they swipe, the page can move vertically as well. That doesn’t feel very stable.</aside>
+        </section>
+
+        <section>
+          <h2>The cat demo</h2>
+          <p>Please open in Codepen yourself and try.</p>
+          <p class="codepen" data-height="590" data-default-tab="css,result" data-slug-hash="mdxyRgV" data-user="huijing" style="height: 590px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/huijing/pen/mdxyRgV">
+            The horizontal overflow problem</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
         </section>
 
         <section>
@@ -183,5 +200,6 @@
         plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
       });
     </script>
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
   </body>
 </html>

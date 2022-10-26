@@ -376,6 +376,9 @@
 .reveal ul > li {
   margin-top: 0.5em;
 }
+.reveal .cp_embed_wrapper {
+  width: 100%;
+}
 
 span.emoji {
   font-family: "Apple Color Emoji", "Segoe UI Emoji";
