@@ -302,6 +302,16 @@
         </section>
 
         <section>
+          <h2>The cat demo</h2>
+          <p>Please open in Codepen yourself and try.</p>
+          <p class="codepen" data-height="590" data-default-tab="css,result" data-slug-hash="mdxyRgV" data-user="huijing" style="height: 590px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/huijing/pen/mdxyRgV">
+            The horizontal overflow problem</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+        </section>
+
+        <section>
           <h2>If nested scrolling…</h2>
           <p>Nested scrolling: when both the page and a component has overflow</p>
           <small><a href="https://codepen.io/wgao19/pen/BaVBvEY">https://codepen.io/wgao19/pen/BaVBvEY</a></small>
@@ -341,10 +351,16 @@
 
         <section>
           <h2>If stacked scrolling due to iFrame…</h2>
-          <figure>
-            <video data-autoplay controls loop style="max-height:70vh" src="img/trapped.mp4"></video>
-            <figcaption style="font-size:75%">Trapped! Argh… 😩</figcaption>
-          </figure>
+          <div class="l-double">
+            <figure>
+              <video data-autoplay controls loop style="max-height:70vh" src="img/trapped.mp4"></video>
+              <figcaption style="font-size:75%">Trapped! Argh… 😩</figcaption>
+            </figure>
+            <figure>
+              <video data-autoplay controls loop style="max-height:70vh" src="img/iframe.mp4"></video>
+              <figcaption style="font-size:75%">Trapped again! 😰</figcaption>
+            </figure>
+          </div>
           <aside class="notes">Sometimes the stacked scrolling may be introduced by iFrame. For example in the past two years all climbing gyms in town required booking. And usually they embed the booking system on their website using iFrame. After the iFrame loads page, which is usually a long table displaying timeslots, it introduces a scrollbar in the iFrame and that often trapped me there.</aside>
         </section>
 
@@ -389,16 +405,6 @@
         </section>
 
         <section>
-          <h2>The cat demo</h2>
-          <p>Please open in Codepen yourself and try.</p>
-          <p class="codepen" data-height="590" data-default-tab="css,result" data-slug-hash="mdxyRgV" data-user="huijing" style="height: 590px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-            <span>See the Pen <a href="https://codepen.io/huijing/pen/mdxyRgV">
-            The horizontal overflow problem</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
-            on <a href="https://codepen.io">CodePen</a>.</span>
-          </p>
-        </section>
-
-        <section>
           <h2>The <code>touch-action</code> property</h2>
           <figure>
             <video data-autoplay controls style="max-height:50vh" src="img/touch-action.mp4"></video>
@@ -428,7 +434,7 @@
 
         <section>
           <h2>The <code>viewport</code> meta tag</h2>
-          video of demo with horizontal overflow
+          <video data-autoplay controls src="img/viewport-meta.mp4"></video>
           <aside class="notes">
             <p>So they give you an iPad and you open the app, because the whole app has min-width: 1024px, it now introduces a horizontal overflow when you hold the app in portrait mode, as the effective resolution is 834px.</p>
             <p>Your goal is to make it minimally usable on tablets, and horizontal overflow is deemed not acceptable. So how? Do you go take down that min-width: 1024px and then try to fix every component that breaks because you now ship for a smaller viewport? However you may want to fix them yourself, it may not be feasible because you may not even be able to know all the logical conditions of the whole app for each component to show.</p>
@@ -470,6 +476,11 @@
           <h2>Not just a technical problem though</h2>
           <p>What if your website owner is not a technical person and has no developers around them?</p>
           <img class="fragment" style="height:50vh" src="img/chicken.webp" alt="a shrugging chicken">
+          <aside class="notes">
+            <p>I know this is Geekcamp, so we must talk technical stuff, for the most part. But a lot of times, the technical solutions are easier to come up with than the people/business side problems. Sometimes we hang out with each other too much, and take for granted that a lot of people actually have no idea what we do for a living. Like my mom.</p>
+            <p>If I made my mom sit through whatever we just talked about for the past half an hour, she would probably either, ask me to explain everything again five more times, and complain I'm not explaining clearly enough, or instead ask me to just fix her printer problem. The point is, not everyone that runs a website is a developer themselves.</p>
+            <p>This problem, I have no meaningful answer. It's just something for everyone to ponder about I guess.</p>
+          </aside>
         </section>
 
         <section style="text-align:left">
