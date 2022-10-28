@@ -19,50 +19,292 @@
             <h1>The<span style="display:block;width:max-content">horizontal overflow</span>problem</h1>
           </div>
           <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> (<a href="http://twitter.com/hj_chen">@hj_chen</a>) & <a href="https://wgea.io/">Gao Wei</a> (<a href="https://twitter.com/wgao19">@wgao19</a>)</small></p>
-          <aside class="notes"></aside>
+          <aside class="notes">Harrow everybody. Welcome to Geekcamp 2022. I don't know why the organisers thought it was a good idea to put us first but here we are.</aside>
         </section>
 
         <section>
           <img style="width:10em;margin-right:4em" data-src="img/wei.png" alt="Wei profile image">
           <img style="width:10em" data-src="img/jing.png" alt="Hui Jing profile image">
-          <aside class="notes"></aside>
+          <aside class="notes">Who is we? We are Gao Wei and Hui Jing, the co-organisers of the now-currently-on-infinite-hiatus meetup, SingaporeCSS. And we are here to talk about…</aside>
+        </section>
+
+        <section>
+          <h2>Wiggling webpages 😤</h2>
+          <figure>
+            <video data-autoplay controls loop src="img/wiggle.mp4"></video>
+            <figcaption style="font-size:75%">My money don't jiggle jiggle…</figcaption>
+          </figure>
+          <aside class="notes">…the tragedy of wiggling webpages. If you are from my generation, you probably first experienced the Internet via a desktop, where scrolling most of the time happens only vertically.</aside>
         </section>
 
         <section>
           <img data-src="img/sliding-door.webp" alt="White wooden sliding door">
+          <aside class="notes">The scroll wheel on the mouse moves in only 1 direction just like a sliding door. Many people don’t even know that to activate horizontal scrolling when applicable you can press and hold shift and scroll using your mouse.</aside>
         </section>
 
         <section>
-          video of overscroll problem on mobile
+          <h2>What do you mean overscroll? 🤔</h2>
+          <div class="l-double">
+            <figure>
+              <video data-autoplay controls loop style="max-height:70vh" src="img/overscroll.mp4"></video>
+              <figcaption style="font-size:75%">Oh hello blank space</figcaption>
+            </figure>
+            <figure>
+              <video data-autoplay controls loop style="max-height:70vh" src="img/overscroll2.mp4"></video>
+              <figcaption style="font-size:75%">Will we be invited back next time? :p</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">Nowadays, many websites are primarily visited via mobile devices. Interaction on mobile devices are based on touches. While our fingers are allowed to move in any direction on the screen, the webpage doesn’t feel so stable when the over-scrolls are free in both directions.</aside>
         </section>
 
         <section>
           <h2>Did you even test on real devices?</h2>
-          
+          <figure>
+            <img src="img/samsung-devices.jpg" alt="Chart showing different Samsung screen sizes">
+            <figcaption style="font-size:smaller">Source: <a href="https://web.archive.org/web/20171122165929/http://blogs.which.co.uk/technology/tablets-2/does-samsung-make-too-many-phones-and-tablets/">Does Samsung make too many phones and tablets?</a></figcaption>
+          </figure>
+          <aside class="notes">My first question to everyone though is, did you even test on a real device? Don't answer me, you answer your own conscience, inside. Let's say you are like me, and you resize the browser a thousand times a day. It's not really enough. Did you go down to a sufficiently narrow viewport, or not? And this chart is not by me, is by someone who wanted to shit on Samsung. But the point is, even today, there is still a 4.8inch and below pool of devices commonly used.</aside>
         </section>
 
         <section>
-          <h2>Did you even test on real devices? (continued)</h2>
+          <h2>Devtools can test is can test, but…</h2>
+          <figure>
+            <video data-autoplay controls loop src="img/browser-width.mp4"></video>
+            <figcaption style="font-size:75%">There's a minimum width on most browsers</figcaption>
+          </figure>
+          <aside class="notes">If you have Devtools as a separate window, Firefox stops at <code>435px</code>, Chrome stops at <code>500px</code> and Safari stops at <code>559px</code>. If you dock your Devtools, then yes, you can shrink your viewport size indefinitely. Or you can turn on the device simulator mode, which I agree, is quite useful and pretty good. But there are still differences, because the hardware, operating system and browser engines are not the same.</aside>
+        </section>
+
+        <section>
+          <h2>Real device versus devtools simulator</h2>
           <ul style="max-width:32em">
-            <li class="fragment">Differences between real device vs devtools simulator:
-              <ul>
-                <li class="fragment">Finger touches constitute coarse cursor, the real touches cannot be as fine as a mouse pointer in a desktop browser emulator</li>
-                <li class="fragment">Certain behaviors only present on mobile devices</li>
-                <li class="fragment">Performance considerations</li>
-                <li class="fragment">Collapsing headers & layout when virtual keyboard activated causing content to overflow</li>
-              </ul>
-            </li>
+            <li class="fragment">Finger touches constitute coarse cursor, the real touches cannot be as fine as a mouse pointer in a desktop browser emulator</li>
+            <li class="fragment">Certain behaviors only present on mobile devices</li>
+            <li class="fragment">Performance considerations</li>
+            <li class="fragment">Collapsing headers & layout when virtual keyboard activated causing content to overflow</li>
           </ul>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Devtools with mobile Safari</h2>
+          <div class="l-double">
+            <figure>
+              <img data-src="img/ios-settings.png" alt="Advanced settings on iOS for Safari">
+              <figcaption style="font-size:75%">Must turn on Web Inspector</figcaption>
+            </figure>
+            <figure>
+              <img data-src="img/safari-settings.png" alt="Advanced settings on macOS for Safari">
+              <figcaption style="font-size:75%">Must turn on Develop menu</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">If you are on an iOS device, ideally you have a machine running macOS so you can check with Safari. Have to turn on developer related settings because Apple doesn't want normal people to anyhowly do things? Who knows? But generally the process quite seamless, the device will show up under the Develop menu.</aside>
+        </section>
+
+        <section>
+          <h2>Devtools with mobile Chrome</h2>
+          <div class="l-double">
+            <figure>
+              <img data-src="img/android-settings.jpg" style="max-height:65vh" alt="Developer settings on Android for Chrome">
+              <figcaption style="font-size:75%">Must turn on USB debugging</figcaption>
+            </figure>
+            <figure>
+              <img data-src="img/chrome-settings.png" alt="Devices settings on Chrome Devtools">
+              <figcaption style="font-size:75%">Don't think you need to turn on anything extra</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">Chrome and Android also play quite well together. For Android, even though there are a million variations of the OS, general guidance is go to Developer options and find the USB debugging option, then turn it on. Chrome side, not much to be done, at least I can't remember if I needed to do anything extra. Same manufacturer got benefits.</aside>
+        </section>
+
+        <section>
+          <h2>Devtools with mobile Firefox</h2>
+          <figure>
+            <img data-src="img/firefox-settings.png" style="max-height:65vh" alt="Developer settings on Android for Chrome">
+            <figcaption style="font-size:75%">I also dunno why kenot</figcaption>
+          </figure>
+          <aside class="notes">This one a bit GG. In theory, the feature exists, but somehow I cannot enable USB debugging. Maybe I didn't install the correct things like the android SDK related things. Any Android developers who got experience can chime in later, maybe. See how.</aside>
         </section>
 
         <section>
           <h2>How to find the offending element?</h2>
-          
+          <figure>
+            <video data-autoplay controls loop style="max-height:65vh" src="img/detect.mp4"></video>
+            <figcaption style="font-size:75%">Some days easy, some days hard</figcaption>
+          </figure>
+          <aside class="notes">
+            <p>Actually, there's no good formula for this. It's a very case-by-case situation, so if you like consistency, you won't like this at all. Usually what I start off with is to just scroll out the overflow, then go down and see if there are any obvious protrusions. That's the best case scenario. But sometimes you will get “invisible” elements, like maybe it's an ad but you're using an Adblocker.</p>
+            <p>But it's like detective work, right? If every robbery or murder can be investigated the same way, then police department do what? A more worse case scenario is just brute force it. Meaning, open the inspector, then from the immediate child level of the body element, start removing elements and see if the overscroll goes away. Then keep digging into the children, the grandchildren, the great-grandchildren, until you reach the 18th level of hell and find the offending element.</p>
+          </aside>
         </section>
 
         <section>
           <h2>If layout code gone wrong, then how?</h2>
-          
+          <p>Sometimes the grid items have either a fixed width or a <code>min-width</code> value applied.</p>
+          <div class="livecode-2p">
+            <div class="result">
+              <div class="grid-p1">
+                <img class="grid-p1__item" src="https://placekitten.com/400/250" alt="a cute kitten">
+                <img class="grid-p1__item" src="https://placekitten.com/400/250" alt="a cute kitten">
+                <img class="grid-p1__item" src="https://placekitten.com/400/250" alt="a cute kitten">
+                <img class="grid-p1__item" src="https://placekitten.com/400/250" alt="a cute kitten">
+                <img class="grid-p1__item" src="https://placekitten.com/400/250" alt="a cute kitten">
+                <img class="grid-p1__item" src="https://placekitten.com/400/250" alt="a cute kitten">
+                <img class="grid-p1__item" src="https://placekitten.com/400/250" alt="a cute kitten">
+                <img class="grid-p1__item" src="https://placekitten.com/400/250" alt="a cute kitten">
+                <img class="grid-p1__item" src="https://placekitten.com/400/250" alt="a cute kitten">
+              </div>
+            </div>
+            <div class="code" ><style class="code-editor" style="font-size:0.75em" contenteditable="true">.result .grid-p1 {
+  display: grid;
+  gap: 1em;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  // grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+}
+
+.grid-p1__item {
+  min-width: 450px;
+}</style></div>
+        <aside class="notes">
+          <p>Sometimes, it's because the layout code has some slight issues, where something is not allowed to shrink properly. Maybe it's a <code>min-width</code> value on a grid item, for example. I can understand why you would want a minimum width for things in a grid, especially images, because you don't want things to shrink to a ridiculously tiny size.</p>
+          <p>Instead of using <code>min-width</code>, let the browser do the calculation by using the <code>minmax()</code> function. Then the browser will figure out how many columns you need. And you can still tweak until you happy. But okay, maybe there's an awkward width where no matter how much you tweak, at some point it looks weird. Are you stuck? NO!</p>
+        </aside>
+        </section>
+
+        <section>
+          <h2>Consider adding breakpoints as required</h2>
+          <div class="l-double">
+            <figure>
+              <video data-autoplay controls loop style="max-height:65vh" src="img/breakpoint.mp4"></video>
+              <figcaption style="font-size:75%">Nobody said cannot use breakpoints</figcaption>
+            </figure>
+            <pre><code>.grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (min-width: 30em) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}</code></pre>
+          </div>
+          <aside class="notes">Can add breakpoint! I mean, as good as it feels to be able to do things in a single line of code, nobody ever said cannot write more. It's not like there is a hard cap on how much code you can write, even though I would love to apply that to some people on some projects. With breakpoints, you can be even more specific on how you want the layout to be at every viewport you can control.</aside>
+        </section>
+
+        <section>
+          <h2>If word too long, then how?</h2>
+          <p>Sometimes you have a really long word in the item that the browser won’t break.</p>
+          <div class="livecode-2p">
+            <div class="result">
+              <div class="grid-p2">
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p>Not a Hippopotamus, sometimes it's a URL like www.incomprehensibilities.com</p>
+                </div>
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p>Not a Hippopotamus, sometimes it's a URL like www.incomprehensibilities.com</p>
+                </div>
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p>Not a Hippopotamus, sometimes it's a URL like www.incomprehensibilities.com</p>
+                </div>
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p>Not a Hippopotamus, sometimes it's a URL like www.incomprehensibilities.com</p>
+                </div>
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p>Not a Hippopotamus, sometimes it's a URL like www.incomprehensibilities.com</p>
+                </div>
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p>Not a Hippopotamus, sometimes it's a URL like www.incomprehensibilities.com</p>
+                </div>
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p>Not a Hippopotamus, sometimes it's a URL like www.incomprehensibilities.com</p>
+                </div>
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p>Not a Hippopotamus, sometimes it's a URL like www.incomprehensibilities.com</p>
+                </div>
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p>Not a Hippopotamus, sometimes it's a URL like www.incomprehensibilities.com</p>
+                </div>
+              </div>
+            </div>
+            <div class="code" ><style class="code-editor" style="font-size:0.75em" contenteditable="true">.result .grid-p2 {
+  display: grid;
+  gap: 1em;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  
+}</style></div>
+          <aside class="notes">
+            <p>Sometimes, it's not a layout issue per se. Maybe your items got some really really long string that the browser doesn't break up by default. Browsers are generally quite smart, and know how to speak many languages, you know why? Becaus dictionary. Anyway, line-breaking and word-breaking is a very non-trivial issue, beyond the scope of this talk, but I will link some nice video in the end, even though I doubt any of you will watch.</p>
+            <p>If the string doesn't really need to stay together, the easy way out is to <code>word-break: break-all</code>. Problem solved. It's an inheritable property, so you can put it on the container or the item, up to you.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Is hyphenation a thing?</h2>
+          <p>For visible hyphens use <code>U+2010</code> or <code>&amp;dash;</code>, while for invisible hyphens, use <code>U+00AD</code> or <code>&amp;shy;</code>.</p>
+          <div class="livecode-2p">
+            <div class="result">
+              <div class="grid-p3">
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p lang="eo">konservatorio konservatorio</p>
+                </div>
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p lang="et">põllumajandusministeerium</p>
+                </div>
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p lang="nl">vervoerdersaansprakelijkheidsverzekering</p>
+                </div>
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p lang="is">vaðlaheiðarvegavinnuverkfærageymsluskúr</p>
+                </div>
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p lang="it">precipitevolissimevolmente</p>
+                </div>
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p lang="lt">nebeprisikiškiakopūstlapiaujančiuosiuose</p>
+                </div>
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p lang="pl">dziewięćdziesięciokilkuletniemu</p>
+                </div>
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p lang="es">anticonstitucionalmente</p>
+                </div>
+                <div class="grid__item">
+                  <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                  <p lang="cy">cyfrwngddarostynedigaeth</p>
+                </div>
+              </div>
+            </div>
+            <div class="code" ><style class="code-editor" style="font-size:0.75em" contenteditable="true">.result .grid-p3 {
+  display: grid;
+  gap: 1em;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  
+}</style></div>
+          <aside class="notes">
+            <p>Browsers can do hyphenation, but it's a bit iffy still. Hyphenation is set to manual by default. When it is manual, it means you have to ownself hyphenate things. Like if you want hyphens that are always visible, then you use <code>U+2010</code> or <code>&amp;dash;</code>, while for invisible hyphens, use <code>U+00AD</code> or <code>&amp;shy;</code>.</p>
+            <p>But this only makes sense if you have complete control over the content and markup. If you're not the one writing the content, can you even coordinate all your content writers to use <code>&amp;shy;</code> in their writing? What if you're using markdown? Then your content ends up a weird hybrid of HTML and markdown.</p>
+            <p>Browsers can do automatic hyphenation, but you must have the <code>lang</code> attribute set correctly. Incorrect hyphenation makes the text really difficult to read. Browsers use dictionaries to figure out when hyphenations need to kick in, so tell your browser what language your content is in.</p>
+            <p>Even though browser support is reasonable, you try viewing this in Chrome, the hyphenation a bit off. It is what it is.</p>
+          </aside>
         </section>
 
         <section>
@@ -131,8 +373,8 @@
           <h2>Maybe you wanted things to scroll horizontally…</h2>
           <div class="l-double">
             <ul>
-              <li class="fragment">e.g., a row of images overflowing the width of mobile screen with free horizontal scrolling</li>
-              <li class="fragment">e.g., carousel where horizontal swiping triggers pagination</li>
+              <li>e.g., a row of images overflowing the width of mobile screen with free horizontal scrolling</li>
+              <li>e.g., carousel where horizontal swiping triggers pagination</li>
             </ul>
             <div><video data-autoplay controls style="max-height:50vh" src="img/intentional-scroll.mp4"></video></div>
           </div>
@@ -142,7 +384,7 @@
         <section>
           <h2>Can is can, but…</h2>
           <p>Let's not do something like this:</p>
-          <figure class="fragment">
+          <figure>
             <video data-autoplay controls style="max-height:50vh" src="img/bad-horizontal.mp4"></video>
             <figcaption style="font-size:75%">Let's not do something like this</figcaption>
           </figure>
@@ -162,7 +404,7 @@
         <section>
           <h2>The <code>touch-action</code> property</h2>
           <figure>
-            <video controls style="max-height:50vh" src="img/touch-action.mp4"></video>
+            <video data-autoplay controls style="max-height:50vh" src="img/touch-action.mp4"></video>
             <figcaption style="font-size:75%"><a href="https://huijing.github.io/touch-action/">https://huijing.github.io/touch-action/</a></figcaption>
           </figure>
           <aside class="notes">There is actually a CSS property called <code>touch-action</code> that lets us block the scrolling in the unintended direction when the component is intended to scroll only in one direction.</aside>
@@ -171,10 +413,66 @@
         <section>
           <h2>Panning done right</h2>
           <figure>
-            <video controls style="max-height:50vh" src="img/good-panning.mp4"></video>
+            <video data-autoplay controls style="max-height:50vh" src="img/good-panning.mp4"></video>
             <figcaption style="font-size:75%">Credit: <a href="https://www.benjaminzander.org/">https://www.benjaminzander.org/</a></figcaption>
           </figure>
           <aside class="notes">Here’s a webpage with carousels that implement proper panning CSS. When you swipe left and right in the carousel sections, the page stays there and it feels more stable.</aside>
+        </section>
+
+        <section>
+          <h2>The <code>viewport</code> meta tag</h2>
+          <p>Scaling down a big, complex app to smaller screen</p>
+          <a href="https://summer-lava-gateway.glitch.me/">https://summer-lava-gateway.glitch.me/</a>
+          <aside class="notes">
+            <p>This is a very interesting case that I think may be valuable to some of us who are building a rather complex web app.</p>
+            <p>Imagine your app is originally built for big, desktop screens, perhaps a complex dashboard. So the whole app assumes, say, a <code>min-width: 1024px</code>. And now the app is mature with many intricate features, built and supported by a few teams. And one day, your PM comes to you and say, “I think it’s time that we ship for tablets, because from our tracking data many users are using iPads.”</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>The <code>viewport</code> meta tag</h2>
+          video of demo with horizontal overflow
+          <aside class="notes">
+            <p>So they give you an iPad and you open the app, because the whole app has min-width: 1024px, it now introduces a horizontal overflow when you hold the app in portrait mode, as the effective resolution is 834px.</p>
+            <p>Your goal is to make it minimally usable on tablets, and horizontal overflow is deemed not acceptable. So how? Do you go take down that min-width: 1024px and then try to fix every component that breaks because you now ship for a smaller viewport? However you may want to fix them yourself, it may not be feasible because you may not even be able to know all the logical conditions of the whole app for each component to show.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Actually, what is viewport?</h2>
+          <p style="max-width:32em;text-align:left;margin:auto;margin-bottom:1em">The <strong>visual viewport</strong> is the part of the page that’s currently shown on-screen. The user may scroll to change the part of the page he sees, or zoom to change the size of the visual viewport.</p>
+          <p style="max-width:32em;text-align:left;margin:auto">However, the CSS layout, especially percentual widths, are calculated relative to the <strong>layout viewport</strong>, which is considerably wider than the visual viewport.</p>
+          <small><a href="https://www.quirksmode.org/mobile/viewports2.html">https://www.quirksmode.org/mobile/viewports2.html</a></small>
+          <aside class="notes">This is very old technology. Ever since the very early days of mobile browsers, they come with two viewports. A visual viewport which is roughly how big the mobile screen is, and a layout viewport which the mobile browser gives your webpage for layout purpose, so your CSS media queries will receive the dimensions of the layout viewport, not the visual viewport. Note that the dimensions of the layout viewport can be much bigger than the visual viewport, that’s how mobile browsers in the old days shrunk down very big desktop websites down to those tiny screens.</aside>
+        </section>
+
+        <section>
+          <h2><code>viewport</code> meta tag in action</h2>
+          <p>Demo time!</p>
+          <aside class="notes">
+            <p>I want to show you using my iPad what happens when I specify the meta viewport tag to be 890px, where my Nintendo Switch page is about 830px wide. Now, you can see how the viewport width stays at 890px, however I change orientation. And by giving my app this layout viewport bigger than its min-width, it will always scale nicely and there will be no horizontal overflow.</p>
+            <p>This is not a trick. Personally speaking, I don’t think it’s hacky at all. Because if you don’t set any viewport meta tag at all, and if the browser sees your content is much wider than the mobile screen, on iPad / iOS it will render a default layout viewport sized of 980px with initial scale of 1. I think we as users are are so used to this behavior we don’t even think eh how come my site is much bigger but it renders just nice on my iPad mini?</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>But then hor…</h2>
+          <ul style="max-width:20em">
+            <li class="fragment">By setting the layout viewport tag for this purpose, it “invalidates” responsive design</li>
+            <li class="fragment">There’s a discrepancy between “layout size” and “actual size” of a component</li>
+            <li class="fragment">Fonts can end up too small</li>
+          </ul>
+          <aside class="notes">
+            <p>By setting the layout viewport tag for this purpose, it “invalidates” responsive design on the site because on mobile screens it now always renders a fixed viewport size.</p>
+            <p>There’s a discrepancy between “layout size” and “actual size” of a component, so it becomes slightly more difficult for you to manually size your component too, you need to always pretend your screen is of certain size (depending how you see it and how your app functions, this could be a bonus lol).</p>
+            <p>Fonts can be too shrunken.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Not just a technical problem though</h2>
+          <p>What if your website owner is not a technical person and has no developers around them?</p>
+          <img class="fragment" style="height:50vh" src="img/chicken.webp" alt="a shrugging chicken">
         </section>
 
         <section style="text-align:left">

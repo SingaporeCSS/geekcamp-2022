@@ -410,35 +410,36 @@ span[role=img][aria-label]:hover::after {
   box-shadow: 2px 2px 4px black;
 }
 
-.livecode {
+[class*=livecode] {
   display: grid;
   grid-gap: 0.5em;
   margin: 0;
   padding: 0;
 }
-.livecode .result {
+[class*=livecode] .result {
   max-height: 100%;
   overflow-y: scroll;
   width: 100%;
   border: 1px dashed indigo;
 }
-.livecode .result li {
+[class*=livecode] .result li {
   line-height: 0;
 }
-.livecode .result p {
+[class*=livecode] .result p {
   margin: 0;
   padding: 0;
 }
-.livecode .code {
+[class*=livecode] .code {
   text-align: left;
   width: 100%;
   font-family: "Dank Mono", monospace;
-  color: #efdcbc;
-  background-color: #3f3f3f;
+  color: #383a42;
+  background-color: #fafafa;
   padding: 0.5em;
   border-radius: 0.25em;
   overflow-y: scroll;
   font-size: 75%;
+  box-sizing: border-box;
 }
 
 .code-editor {
