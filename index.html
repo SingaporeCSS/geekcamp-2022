@@ -307,11 +307,11 @@
           <small><a href="https://codepen.io/wgao19/pen/BaVBvEY">https://codepen.io/wgao19/pen/BaVBvEY</a></small>
           <div class="l-double">
             <figure>
-              <video controls style="max-height:50vh" src="img/nested-scroll.mp4"></video>
+              <video data-autoplay controls loop style="max-height:50vh" src="img/nested-scroll.mp4"></video>
               <figcaption style="font-size:75%">Basic example</figcaption>
             </figure>
             <figure>
-              <video controls style="max-height:50vh" src="img/nested-scroll-stuck.mp4"></video>
+              <video data-autoplay controls loop style="max-height:50vh" src="img/nested-scroll-stuck.mp4"></video>
               <figcaption style="font-size:75%">Component scroll blocks page scroll</figcaption>
             </figure>
           </div>
@@ -341,7 +341,10 @@
 
         <section>
           <h2>If stacked scrolling due to iFrame…</h2>
-          insert video here
+          <figure>
+            <video data-autoplay controls loop style="max-height:70vh" src="img/trapped.mp4"></video>
+            <figcaption style="font-size:75%">Trapped! Argh… 😩</figcaption>
+          </figure>
           <aside class="notes">Sometimes the stacked scrolling may be introduced by iFrame. For example in the past two years all climbing gyms in town required booking. And usually they embed the booking system on their website using iFrame. After the iFrame loads page, which is usually a long table displaying timeslots, it introduces a scrollbar in the iFrame and that often trapped me there.</aside>
         </section>
 
@@ -370,7 +373,7 @@
               <li>e.g., a row of images overflowing the width of mobile screen with free horizontal scrolling</li>
               <li>e.g., carousel where horizontal swiping triggers pagination</li>
             </ul>
-            <div><video data-autoplay controls style="max-height:50vh" src="img/intentional-scroll.mp4"></video></div>
+            <div><video data-autoplay controls loop style="max-height:50vh" src="img/intentional-scroll.mp4"></video></div>
           </div>
           <aside class="notes">Nested scrolling can be of different direction. For example you may have a row of images to be displayed on a narrow screen by introducing horizontal scroll.</aside>
         </section>
@@ -379,7 +382,7 @@
           <h2>Can is can, but…</h2>
           <p>Let's not do something like this:</p>
           <figure>
-            <video data-autoplay controls style="max-height:50vh" src="img/bad-horizontal.mp4"></video>
+            <video data-autoplay controls loop style="max-height:50vh" src="img/bad-horizontal.mp4"></video>
             <figcaption style="font-size:75%">Let's not do something like this</figcaption>
           </figure>
           <aside class="notes">Personally speaking, I find this UI pretty acceptable — only when you don’t let me scroll both directions at the same time. See the first example, there’s a carousel, users are expected to swipe (or click) to paginate the carousel. But as they swipe, the page can move vertically as well. That doesn’t feel very stable.</aside>
@@ -407,7 +410,7 @@
         <section>
           <h2>Panning done right</h2>
           <figure>
-            <video data-autoplay controls style="max-height:50vh" src="img/good-panning.mp4"></video>
+            <video data-autoplay controls style="max-height:70vh" src="img/good-panning.mp4"></video>
             <figcaption style="font-size:75%">Credit: <a href="https://www.benjaminzander.org/">https://www.benjaminzander.org/</a></figcaption>
           </figure>
           <aside class="notes">Here’s a webpage with carousels that implement proper panning CSS. When you swipe left and right in the carousel sections, the page stays there and it feels more stable.</aside>
