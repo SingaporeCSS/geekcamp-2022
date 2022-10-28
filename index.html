@@ -44,16 +44,10 @@
 
         <section>
           <h2>What do you mean overscroll? 🤔</h2>
-          <div class="l-double">
-            <figure>
-              <video data-autoplay controls loop style="max-height:70vh" src="img/overscroll.mp4"></video>
-              <figcaption style="font-size:75%">Oh hello blank space</figcaption>
-            </figure>
-            <figure>
-              <video data-autoplay controls loop style="max-height:70vh" src="img/overscroll2.mp4"></video>
-              <figcaption style="font-size:75%">Will we be invited back next time? :p</figcaption>
-            </figure>
-          </div>
+          <figure>
+            <video data-autoplay controls loop style="max-height:70vh" src="img/unstable.mp4"></video>
+            <figcaption style="font-size:75%">This is not very pleasant</figcaption>
+          </figure>
           <aside class="notes">Nowadays, many websites are primarily visited via mobile devices. Interaction on mobile devices are based on touches. While our fingers are allowed to move in any direction on the screen, the webpage doesn’t feel so stable when the over-scrolls are free in both directions.</aside>
         </section>
 
@@ -193,7 +187,7 @@
 
         <section>
           <h2>If word too long, then how?</h2>
-          <p>Sometimes you have a really long word in the item that the browser won’t break.</p>
+          <p>Sometimes you have a really long word in the item that the browser won’t break. Watch <a href="https://www.youtube.com/watch?v=hXP0M7Um1dI">Line breaking and related properties from CSS Text</a> for in-depth explanation on line-breaking</p>
           <div class="livecode-2p">
             <div class="result">
               <div class="grid-p2">
@@ -243,7 +237,7 @@
   
 }</style></div>
           <aside class="notes">
-            <p>Sometimes, it's not a layout issue per se. Maybe your items got some really really long string that the browser doesn't break up by default. Browsers are generally quite smart, and know how to speak many languages, you know why? Becaus dictionary. Anyway, line-breaking and word-breaking is a very non-trivial issue, beyond the scope of this talk, but I will link some nice video in the end, even though I doubt any of you will watch.</p>
+            <p>Sometimes, it's not a layout issue per se. Maybe your items got some really really long string that the browser doesn't break up by default. Browsers are generally quite smart, and know how to speak many languages, you know why? Becaus dictionary. Anyway, line-breaking and word-breaking is a very non-trivial issue, beyond the scope of this talk, but I will link a nice video here, even though I doubt any of you will watch.</p>
             <p>If the string doesn't really need to stay together, the easy way out is to <code>word-break: break-all</code>. Problem solved. It's an inheritable property, so you can put it on the container or the item, up to you.</p>
           </aside>
         </section>
