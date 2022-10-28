@@ -41,26 +41,74 @@
           <video data-autoplay controls loop src="img/wiggle.mp4"></video>
           <figcaption style="font-size:75%">My money don't jiggle jiggle…</figcaption>
         </figure>
-        <aside class="notes">…the tragedy of wiggling webpages. If you are from my generation, you probably first
-          experienced the Internet via a desktop, where scrolling most of the time happens only vertically.</aside>
+        <aside class="notes">
+          <p>
+            …the tragedy of wiggling webpages.
+          </p>
+          <p>That's a very cute kitten but I think a website shouldn't do that.</p>
+          <p>Shouldn't do what???</p>
+          <p>Shouldn't wiggle 😑</p>
+        </aside>
       </section>
 
       <section>
-        <img data-src="img/sliding-door.webp" alt="White wooden sliding door">
-        <aside class="notes">The scroll wheel on the mouse moves in only 1 direction just like a sliding door. Many
-          people don’t even know that to activate horizontal scrolling when applicable you can press and hold shift and
-          scroll using your mouse.</aside>
-      </section>
-
-      <section>
-        <h2>What do you mean overscroll? 🤔</h2>
+        <h2>How does a webpage wiggle? 🤔</h2>
         <figure>
           <video data-autoplay controls loop style="max-height:70vh" src="img/unstable.mp4"></video>
           <figcaption style="font-size:75%">This is not very pleasant</figcaption>
         </figure>
-        <aside class="notes">Nowadays, many websites are primarily visited via mobile devices. Interaction on mobile
-          devices are based on touches. While our fingers are allowed to move in any direction on the screen, the
-          webpage doesn’t feel so stable when the over-scrolls are free in both directions.</aside>
+        <aside class="notes">
+          <p>The other day I was at our favorite café and I saw this again! As I scrolled through the menu, it doesn't
+            just scroll vertically, it scrolls... horizontally as well 😰 </p>
+          <p>Because my thumb isn't a very fine cursor, when I mean I wanna scroll down, I can't really scroll perfectly
+            down.. So I expect the website to guide me in that direction.</p>
+        </aside>
+      </section>
+
+
+      <section>
+        <img data-src="img/sliding-door.webp" alt="White wooden sliding door">
+        <aside class="notes">
+
+          <p>Is that too much to ask?</p>
+
+          <p>Imagine a sliding door -- it's supposed to slide in just one direction, the direction restricted by its
+            track. It shouldn't move forward or backward. And it shouldn't get stuck when sliding.</p>
+
+
+        </aside>
+      </section>
+      <section>
+        add video for https://homesociete.ca/en/
+        <aside class="notes">
+
+          <p>I'm not saying it should never scroll horizontally. Some websites implement primarily horizontal scroll and
+            it can be beautiful. But I am expecting it to scroll only in the intended direction, and in most cases one
+            direction at a time.</p>
+
+
+        </aside>
+      </section>
+
+      <section>
+        add image of a desktop site and a mouse
+
+        <aside class="notes">
+          <p>I think my comfort about this comes from the desktop as much as from the physical world. On desktop we use
+            a scrollwheel, which is a 1-dimensional cursor. By default webpages scroll vertically. And even when the
+            content region may scroll in both directions, the default behavior is still to scroll down, only when you
+            press and hold shift it will then switch mode and scroll horizontally.</p>
+
+          <p>But standing here today as a web developer for many years, if I'm to text my younger self in middle school
+            20 years ago, back then using a Symbian 40 phone, hey you know what, 20 years later web developers our
+            generation cannot implement page scrolling properly because phones now all got touch screen... I'd feel
+            pretty ashamed..
+          </p>
+
+          <p>
+            How did we become so ignorant?
+          </p>
+        </aside>
       </section>
 
       <section>
@@ -101,7 +149,28 @@
           <li class="fragment">Collapsing headers & layout when virtual keyboard activated causing content to overflow
           </li>
         </ul>
-        <aside class="notes"></aside>
+        <aside class="notes">
+          <p>There are also a lot of intrinsic interaction differences that we overlook between a simulator and a real
+            device.</p>
+
+          <p>First is that finger touches are not the same as a mouse navigation. A mouse is a fine cursor, you can see
+            and point exactly at your intended spot. And the scroll wheel is naturally restricting the scroll direction.
+            We don't have that on touch screens.</p>
+
+          <p>Second, there are certain behaviors that are only present on mobile devices. A few years ago there's a
+            classic webkit property that all mobile web apps need to implement, the `webkit-overflow-scrolling: touch`,
+            for iOS devices to have the momentum as you scroll, if you don't add this your site's scrolling will be
+            sticky to your fingers, that's a UI only appearing on real devices.</p>
+
+          <p>Then there's performance considerations. Some gestures running nicely on our powerful MBPs may not be as
+            performant on lower end phones.</p>
+
+          <p>And there's also collapsing headers that will mess with your mobile layout, or when you pull out the mobile
+            keyboards you can get surprises that you don't usually see on simulators.</p>
+
+          <p>So next time before promising that your app works on mobile, do use a real device to test yourself first.
+          </p>
+        </aside>
       </section>
 
       <section>
@@ -300,7 +369,7 @@
           <aside class="notes">
             <p>Sometimes, it's not a layout issue per se. Maybe your items got some really really long string that the
               browser doesn't break up by default. Browsers are generally quite smart, and know how to speak many
-              languages, you know why? Becaus dictionary. Anyway, line-breaking and word-breaking is a very non-trivial
+              languages, you know why? Because dictionary. Anyway, line-breaking and word-breaking is a very non-trivial
               issue, beyond the scope of this talk, but I will link a nice video here, even though I doubt any of you
               will watch.</p>
             <p>If the string doesn't really need to stay together, the easy way out is to
@@ -370,7 +439,8 @@
               <p>Browsers can do hyphenation, but it's a bit iffy still. Hyphenation is set to manual by default. When
                 it is manual, it means you have to ownself hyphenate things. Like if you want hyphens that are always
                 visible, then you use <code>U+2010</code> or <code>&amp;dash;</code>, while for invisible hyphens, use
-                <code>U+00AD</code> or <code>&amp;shy;</code>.</p>
+                <code>U+00AD</code> or <code>&amp;shy;</code>.
+              </p>
               <p>But this only makes sense if you have complete control over the content and markup. If you're not the
                 one writing the content, can you even coordinate all your content writers to use <code>&amp;shy;</code>
                 in their writing? What if you're using markdown? Then your content ends up a weird hybrid of HTML and
@@ -409,13 +479,14 @@
           </figure>
         </div>
         <aside class="notes">
-          <p>Nested scrolling happens when both page and a component has scrolling. There will be a stacked scrollbar.
+          <p>Nested scrolling happens when both page and a component have scrolling. There will be stacked scrollbars.
             When users scroll inside the component, the page will stay at the same scroll position. When the component
             scroll position is at its bottom, try scrolling the component in the same direction — usually, it will
             resume scrolling the page, which is intended, as the internal overflow has finished scrolling.</p>
+
           <p>But a tricky situation can happen when it sometimes doesn’t scroll the outer page. When this happens, the
             page is “stuck” at that scroll position as it constantly triggers the scrolling of the inner component only.
-            Us developers “power users” may realize that we’re stuck in the inner scrollbar and therefore we can
+            Us developers “power users” may realize that we’re stuck in the inner component and therefore we can
             carefully put our fingers in the margin area and manually trigger the page scrolling again. But users may
             not be able to learn to do that and hence get themselves trapped.</p>
         </aside>
@@ -453,20 +524,27 @@
             <video data-autoplay controls loop style="max-height:70vh" src="img/trapped.mp4"></video>
             <figcaption style="font-size:75%">Trapped! Argh… 😩</figcaption>
           </figure>
-          <figure>
+          <figure class="fragment">
             <video data-autoplay controls loop style="max-height:70vh" src="img/iframe.mp4"></video>
-            <figcaption style="font-size:75%">Trapped again! 😰</figcaption>
+            <figcaption style="font-size:75%">No more stacked scrollbars from iFrame 😍</figcaption>
           </figure>
         </div>
-        <aside class="notes">Sometimes the stacked scrolling may be introduced by iFrame. For example in the past two
-          years all climbing gyms in town required booking. And usually they embed the booking system on their website
-          using iFrame. After the iFrame loads page, which is usually a long table displaying timeslots, it introduces a
-          scrollbar in the iFrame and that often trapped me there.</aside>
+        <aside class="notes">
+          <p>
+            Sometimes the stacked scrolling may be introduced by iFrame. For example in the past two
+            years all climbing gyms in town required booking. And usually they embed the booking system on their website
+            using iFrame. After the iFrame loads page, which is usually a long table displaying timeslots, it introduces
+            a scrollbar in the iFrame and that often trapped me there.
+          </p>
+          <p>
+            But to my happy surprise this one of my favorite gyms in town has fixed it -- it now sets the height of the
+            iframe programmatically after the inner content loads. So how can you do that?
+          </p>
+        </aside>
       </section>
 
       <section>
-        <h2>…then how?</h2>
-        <p>You can consider:</p>
+        <h2>…you may try:</h2>
         <ul style="max-width:28em">
           <li class="fragment">Statically setting the iFrame height to be a known height that is enough for its inner
             content</li>
@@ -524,76 +602,109 @@
       <section>
         <h2>The <code>touch-action</code> property</h2>
         <figure>
-          <video data-autoplay controls loop style="max-height:50vh" src="img/nested-scroll.mp4"></video>
-          <figcaption style="font-size:75%">Basic example</figcaption>
+          <video data-autoplay controls style="max-height:50vh" src="img/touch-action.mp4"></video>
+          <figcaption style="font-size:75%"><a
+              href="https://huijing.github.io/touch-action/">https://huijing.github.io/touch-action/</a></figcaption>
         </figure>
+        <aside class="notes">There is actually a CSS property called <code>touch-action</code> that lets us block the
+          scrolling in the unintended direction when the component is intended to scroll only in one direction.</aside>
+      </section>
+      <section>
+        <h2>Panning done right</h2>
         <figure>
-          <video data-autoplay controls loop style="max-height:50vh" src="img/nested-scroll-stuck.mp4"></video>
-          <figcaption style="font-size:75%">Component scroll blocks page scroll</figcaption>
+          <video data-autoplay controls style="max-height:70vh" src="img/good-panning.mp4"></video>
+          <figcaption style="font-size:75%">Credit: <a
+              href="https://www.benjaminzander.org/">https://www.benjaminzander.org/</a></figcaption>
         </figure>
         <aside class="notes">Here’s a webpage with carousels that implement proper panning CSS. When you swipe left and
           right in the carousel sections, the page stays there and it feels more stable.</aside>
       </section>
 
       <section>
-        <h2>The <code>viewport</code> meta tag</h2>
-        <p>Scaling down a big, complex app to smaller screen</p>
-        <a href="https://summer-lava-gateway.glitch.me/">https://summer-lava-gateway.glitch.me/</a>
+        <h2>Scaling down a big, complex app to smaller screen</h2>
         <aside class="notes">
-          <p>This is a very interesting case that I think may be valuable to some of us who are building a rather
-            complex web app.</p>
-          <p>Imagine your app is originally built for big, desktop screens, perhaps a complex dashboard. So the whole
-            app assumes, say, a <code>min-width: 1024px</code>. And now the app is mature with many intricate features,
-            built and supported by a few teams. And one day, your PM comes to you and say, “I think it’s time that we
-            ship for tablets, because from our tracking data many users are using iPads.”</p>
+          <p>Just now Hui Jing mentioned how <code>min-width</code> may become problematic layout. Now I'll share a case
+            where, despite potentially undesirable, perhaps is uneasy to change. And what workaround there may be to get
+            you some minimally usable web app that does not introduce unnecessary horizontal scrolling.</p>
         </aside>
       </section>
 
       <section>
-        <h2>The <code>viewport</code> meta tag</h2>
         <video data-autoplay controls src="img/viewport-meta.mp4"></video>
         <aside class="notes">
-          <p>So they give you an iPad and you open the app, because the whole app has min-width: 1024px, it now
-            introduces a horizontal overflow when you hold the app in portrait mode, as the effective resolution is
-            834px.</p>
+          <p>Imagine your app is originally built for big, desktop screens, perhaps a complex dashboard, or a highly
+            developed e-commerce app. And for whatever legacy reason there is, the app already assumes a min-width that
+            is causing overflow on tablets. And now the app is mature with many intricate features, built and supported
+            by
+            a handful of teams. And one day, your PM comes to you and say, “I think it’s time that
+            we ship for tablets, because from our tracking data many users are using iPads.”
+          </p>
+
+          <p>So they give you an iPad and the first thing you do? You
+            open the app and boom, horizontal overflow.</p>
+
           <p>Your goal is to make it minimally usable on tablets, and horizontal overflow is deemed not acceptable. So
-            how? Do you go take down that min-width: 1024px and then try to fix every component that breaks because you
-            now ship for a smaller viewport? However you may want to fix them yourself, it may not be feasible because
-            you may not even be able to know all the logical conditions of the whole app for each component to show.</p>
+            how? Do you go take down that min-width and then try to fix every component that breaks under smaller
+            viewport? However you may want to fix them yourself, it may not be feasible because you may not even be able
+            to know all the logical conditions of the whole app for each component to show.</p>
+
         </aside>
       </section>
 
       <section>
-        <h2>Actually, what is viewport?</h2>
-        <p style="max-width:32em;text-align:left;margin:auto;margin-bottom:1em">The <strong>visual viewport</strong> is
-          the part of the page that’s currently shown on-screen. The user may scroll to change the part of the page he
-          sees, or zoom to change the size of the visual viewport.</p>
-        <p style="max-width:32em;text-align:left;margin:auto">However, the CSS layout, especially percentual widths, are
-          calculated relative to the <strong>layout viewport</strong>, which is considerably wider than the visual
-          viewport.</p>
-        <small><a
+        <h2>The <code>viewport</code> meta tag</h2>
+        <aside class="notes">
+          <p>So I want to introduce you to one use case of the viewport meta tag which is often poorly understood.</p>
+        </aside>
+      </section>
+
+      <section>
+        <h2>Do you know that there are <em>two</em> viewports on mobile browsers?</h2>
+        <p class="fragment" style="max-width:32em;text-align:left;margin:auto;margin-bottom:1em">The <strong>visual
+            viewport</strong> is the part of the page that’s currently shown on-screen. And the size follows the actual
+          screen size.</p>
+        <p class="fragment" style="max-width:32em;text-align:left;margin:auto">However, the CSS layout, especially
+          percentual widths, are calculated relative to the <strong>layout viewport</strong>, which <em>can be</em>
+          considerably wider than the visual viewport.</p>
+        <small class="fragment"><a
             href="https://www.quirksmode.org/mobile/viewports2.html">https://www.quirksmode.org/mobile/viewports2.html</a></small>
-        <aside class="notes">This is very old technology. Ever since the very early days of mobile browsers, they come
-          with two viewports. A visual viewport which is roughly how big the mobile screen is, and a layout viewport
-          which the mobile browser gives your webpage for layout purpose, so your CSS media queries will receive the
-          dimensions of the layout viewport, not the visual viewport. Note that the dimensions of the layout viewport
-          can be much bigger than the visual viewport, that’s how mobile browsers in the old days shrunk down very big
-          desktop websites down to those tiny screens.</aside>
+        <aside class="notes">
+          <p>
+            This is very old technology. Ever since the very early days, the mobile browsers come with two viewports. A
+            visual viewport which is roughly how big the mobile screen is (taking away the header and the footer, etc.).
+            The user may scroll to change the part of the page he sees, or zoom to change the scale of the visual
+            viewport.
+          </p>
+
+          <p>
+            And then there is layout viewport, which the mobile browser gives your webpage for layout purpose, so your
+            CSS
+            media queries will receive the dimensions of the layout viewport, not the visual viewport. Note that the
+            dimensions of the layout viewport can be much bigger than the visual viewport, that’s how mobile browsers in
+            the old days shrunk down very big desktop websites down to those tiny screens.
+          </p>
+        </aside>
       </section>
 
       <section>
         <h2><code>viewport</code> meta tag in action</h2>
         <p>Demo time!</p>
+        <p class="fragment">
+          <code>&lt;meta name="viewport" content="width=1600" /&gt;</code>
+        </p>
         <aside class="notes">
-          <p>I want to show you using my iPad what happens when I specify the meta viewport tag to be 890px, where my
-            Nintendo Switch page is about 830px wide. Now, you can see how the viewport width stays at 890px, however I
+          <p>First I want to show you how this app looks like on my iPad before doing anything. The app has min width
+            1500px, so it introduces a horizontal overflow because the viewport width is ...</p>
+
+          <p>Now here's what happens when I add this viewport meta tag to the html head. It says to specify layout
+            viewport to be fixed to 1600px. Now, you can see how the viewport width stays at 1600px. Even if I
             change orientation. And by giving my app this layout viewport bigger than its min-width, it will always
             scale nicely and there will be no horizontal overflow.</p>
-          <p>This is not a trick. Personally speaking, I don’t think it’s hacky at all. Because if you don’t set any
-            viewport meta tag at all, and if the browser sees your content is much wider than the mobile screen, on iPad
-            / iOS it will render a default layout viewport sized of 980px with initial scale of 1. I think we as users
-            are are so used to this behavior we don’t even think eh how come my site is much bigger but it renders just
-            nice on my iPad mini?</p>
+          <p>This is not a trick. In fact, if you don’t set any viewport meta tag at all, and if the browser sees your
+            content is much wider than the mobile screen, on iPad / iOS it will render a default layout viewport sized
+            at
+            980px. I think we as users are are so used to this behavior we don’t even think eh how come my site is much
+            bigger but it renders just nice on my iPad mini?</p>
         </aside>
       </section>
 
@@ -626,10 +737,11 @@
             living. Like my mom.</p>
           <p>If I made my mom sit through whatever we just talked about for the past half an hour, she would probably
             either, ask me to explain everything again five more times, and complain I'm not explaining clearly enough,
-            or instead ask me to just fix her printer problem. The point is, not everyone that runs a website is a
-            developer themselves.</p>
+            or
+            instead ask me to just fix her printer problem. The point is, not everyone that runs a website is a
+            developer
+            themselves.</p>
           <p>This problem, I have no meaningful answer. It's just something for everyone to ponder about I guess.</p>
-        </aside>
       </section>
 
       <section style="text-align:left">
@@ -637,149 +749,10 @@
           style="border:8px solid green;width:26%;padding:1em;margin-bottom:1.2em;border-radius:8px">
           <h1>10q <span style="display:block;width:max-content">errbadee!</span></h1>
         </div>
+      </section>
     </div>
-    <aside class="notes">Nested scrolling can be of different direction. For example you may have a row of images to
-      be displayed on a narrow screen by introducing horizontal scroll.</aside>
-    </section>
 
-    <section>
-      <h2>Can is can, but…</h2>
-      <p>Let's not do something like this:</p>
-      <figure>
-        <video data-autoplay controls loop style="max-height:50vh" src="img/bad-horizontal.mp4"></video>
-        <figcaption style="font-size:75%">Let's not do something like this</figcaption>
-      </figure>
-      <aside class="notes">Personally speaking, I find this UI pretty acceptable — only when you don’t let me scroll
-        both directions at the same time. See the first example, there’s a carousel, users are expected to swipe (or
-        click) to paginate the carousel. But as they swipe, the page can move vertically as well. That doesn’t feel
-        very stable.</aside>
-    </section>
 
-    <section>
-      <h2>The cat demo</h2>
-      <p>Please open in Codepen yourself and try.</p>
-      <p class="codepen" data-height="590" data-default-tab="css,result" data-slug-hash="mdxyRgV" data-user="huijing"
-        style="height: 590px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-        <span>See the Pen <a href="https://codepen.io/huijing/pen/mdxyRgV">
-            The horizontal overflow problem</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
-          on <a href="https://codepen.io">CodePen</a>.</span>
-      </p>
-    </section>
-
-    <section>
-      <h2>The <code>touch-action</code> property</h2>
-      <figure>
-        <video data-autoplay controls style="max-height:50vh" src="img/touch-action.mp4"></video>
-        <figcaption style="font-size:75%"><a
-            href="https://huijing.github.io/touch-action/">https://huijing.github.io/touch-action/</a></figcaption>
-      </figure>
-      <aside class="notes">There is actually a CSS property called <code>touch-action</code> that lets us block the
-        scrolling in the unintended direction when the component is intended to scroll only in one direction.</aside>
-    </section>
-
-    <section>
-      <h2>Panning done right</h2>
-      <figure>
-        <video data-autoplay controls style="max-height:70vh" src="img/good-panning.mp4"></video>
-        <figcaption style="font-size:75%">Credit: <a
-            href="https://www.benjaminzander.org/">https://www.benjaminzander.org/</a></figcaption>
-      </figure>
-      <aside class="notes">Here’s a webpage with carousels that implement proper panning CSS. When you swipe left and
-        right in the carousel sections, the page stays there and it feels more stable.</aside>
-    </section>
-
-    <section>
-      <h2>The <code>viewport</code> meta tag</h2>
-      <p>Scaling down a big, complex app to smaller screen</p>
-      <a href="https://summer-lava-gateway.glitch.me/">https://summer-lava-gateway.glitch.me/</a>
-      <aside class="notes">
-        <p>This is a very interesting case that I think may be valuable to some of us who are building a rather
-          complex web app.</p>
-        <p>Imagine your app is originally built for big, desktop screens, perhaps a complex dashboard. So the whole
-          app assumes, say, a <code>min-width: 1024px</code>. And now the app is mature with many intricate features,
-          built and supported by a few teams. And one day, your PM comes to you and say, “I think it’s time that we
-          ship for tablets, because from our tracking data many users are using iPads.”</p>
-      </aside>
-    </section>
-
-    <section>
-      <h2>The <code>viewport</code> meta tag</h2>
-      video of demo with horizontal overflow
-      <aside class="notes">
-        <p>So they give you an iPad and you open the app, because the whole app has min-width: 1024px, it now
-          introduces a horizontal overflow when you hold the app in portrait mode, as the effective resolution is
-          834px.</p>
-        <p>Your goal is to make it minimally usable on tablets, and horizontal overflow is deemed not acceptable. So
-          how? Do you go take down that min-width: 1024px and then try to fix every component that breaks because you
-          now ship for a smaller viewport? However you may want to fix them yourself, it may not be feasible because
-          you may not even be able to know all the logical conditions of the whole app for each component to show.</p>
-      </aside>
-    </section>
-
-    <section>
-      <h2>Actually, what is viewport?</h2>
-      <p style="max-width:32em;text-align:left;margin:auto;margin-bottom:1em">The <strong>visual viewport</strong> is
-        the part of the page that’s currently shown on-screen. The user may scroll to change the part of the page he
-        sees, or zoom to change the size of the visual viewport.</p>
-      <p style="max-width:32em;text-align:left;margin:auto">However, the CSS layout, especially percentual widths, are
-        calculated relative to the <strong>layout viewport</strong>, which is considerably wider than the visual
-        viewport.</p>
-      <small><a
-          href="https://www.quirksmode.org/mobile/viewports2.html">https://www.quirksmode.org/mobile/viewports2.html</a></small>
-      <aside class="notes">This is very old technology. Ever since the very early days of mobile browsers, they come
-        with two viewports. A visual viewport which is roughly how big the mobile screen is, and a layout viewport
-        which the mobile browser gives your webpage for layout purpose, so your CSS media queries will receive the
-        dimensions of the layout viewport, not the visual viewport. Note that the dimensions of the layout viewport
-        can be much bigger than the visual viewport, that’s how mobile browsers in the old days shrunk down very big
-        desktop websites down to those tiny screens.</aside>
-    </section>
-
-    <section>
-      <h2><code>viewport</code> meta tag in action</h2>
-      <p>Demo time!</p>
-      <aside class="notes">
-        <p>I want to show you using my iPad what happens when I specify the meta viewport tag to be 890px, where my
-          Nintendo Switch page is about 830px wide. Now, you can see how the viewport width stays at 890px, however I
-          change orientation. And by giving my app this layout viewport bigger than its min-width, it will always
-          scale nicely and there will be no horizontal overflow.</p>
-        <p>This is not a trick. Personally speaking, I don’t think it’s hacky at all. Because if you don’t set any
-          viewport meta tag at all, and if the browser sees your content is much wider than the mobile screen, on iPad
-          / iOS it will render a default layout viewport sized of 980px with initial scale of 1. I think we as users
-          are are so used to this behavior we don’t even think eh how come my site is much bigger but it renders just
-          nice on my iPad mini?</p>
-      </aside>
-    </section>
-
-    <section>
-      <h2>But then hor…</h2>
-      <ul style="max-width:20em">
-        <li class="fragment">By setting the layout viewport tag for this purpose, it “invalidates” responsive design
-        </li>
-        <li class="fragment">There’s a discrepancy between “layout size” and “actual size” of a component</li>
-        <li class="fragment">Fonts can end up too small</li>
-      </ul>
-      <aside class="notes">
-        <p>By setting the layout viewport tag for this purpose, it “invalidates” responsive design on the site because
-          on mobile screens it now always renders a fixed viewport size.</p>
-        <p>There’s a discrepancy between “layout size” and “actual size” of a component, so it becomes slightly more
-          difficult for you to manually size your component too, you need to always pretend your screen is of certain
-          size (depending how you see it and how your app functions, this could be a bonus lol).</p>
-        <p>Fonts can be too shrunken.</p>
-      </aside>
-    </section>
-
-    <section>
-      <h2>Not just a technical problem though</h2>
-      <p>What if your website owner is not a technical person and has no developers around them?</p>
-      <img class="fragment" style="height:50vh" src="img/chicken.webp" alt="a shrugging chicken">
-    </section>
-
-    <section style="text-align:left">
-      <div class="title-wrapper"
-        style="border:8px solid green;width:26%;padding:1em;margin-bottom:1.2em;border-radius:8px">
-        <h1>10q <span style="display:block;width:max-content">errbadee!</span></h1>
-      </div>
-    </section>
   </div>
 
   <footer
