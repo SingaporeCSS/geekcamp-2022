@@ -59,8 +59,7 @@
         </aside>
       </section>
 
-      <section>
-        <img data-src="img/sliding-door.webp" alt="White wooden sliding door">
+      <section data-background-image="img/sliding.webp" data-background-size="contain">
         <aside class="notes">
           <p>Is that too much to ask?</p>
           <p>Imagine a sliding door -- it's supposed to slide in just one direction, the direction restricted by its track. It shouldn't move forward or backward. And it shouldn't get stuck when sliding.</p>
@@ -68,13 +67,11 @@
       </section>
 
       <section>
-        add video for https://homesociete.ca/en/
+        <video data-autoplay controls loop style="max-height:100vh" src="img/confused.mp4"></video>
         <aside class="notes">I'm not saying it should never scroll horizontally. Some websites implement primarily horizontal scroll and it can be beautiful. But I am expecting it to scroll only in the intended direction, and in most cases one direction at a time.</aside>
       </section>
 
-      <section>
-        add image of a desktop site and a mouse
-
+      <section data-background-image="img/old-school.jpeg">
         <aside class="notes">
           <p>I think my comfort about this comes from the desktop as much as from the physical world. On desktop we use a scrollwheel, which is a 1-dimensional cursor. By default webpages scroll vertically. And even when the content region may scroll in both directions, the default behavior is still to scroll down, only when you press and hold shift it will then switch mode and scroll horizontally.</p>
           <p>But standing here today as a web developer for many years, if I'm to text my younger self in middle school 20 years ago, back then using a Symbian 40 phone, hey you know what, 20 years later web developers our generation cannot implement page scrolling properly because phones now all got touch screen... I'd feel pretty ashamed..</p>
@@ -470,7 +467,7 @@
             <li>e.g., a row of images overflowing the width of mobile screen with free horizontal scrolling</li>
             <li>e.g., carousel where horizontal swiping triggers pagination</li>
           </ul>
-          <div><video data-autoplay controls loop style="max-height:50vh" src="img/intentional-scroll.mp4"></video>
+          <div><video data-autoplay controls loop style="max-height:60vh" src="img/intentional-scroll.mp4"></video>
           </div>
         </div>
         <aside class="notes">Nested scrolling can be of different direction. For example you may have a row of images to
@@ -481,7 +478,7 @@
         <h2>Can is can, but…</h2>
         <p>Let's not do something like this:</p>
         <figure>
-          <video data-autoplay controls loop style="max-height:50vh" src="img/bad-horizontal.mp4"></video>
+          <video data-autoplay controls loop style="max-height:60vh" src="img/bad-horizontal.mp4"></video>
           <figcaption style="font-size:75%">Let's not do something like this</figcaption>
         </figure>
         <aside class="notes">Personally speaking, I find this UI pretty acceptable — only when you don’t let me scroll
@@ -493,7 +490,7 @@
       <section>
         <h2>The <code>touch-action</code> property</h2>
         <figure>
-          <video data-autoplay controls style="max-height:50vh" src="img/touch-action.mp4"></video>
+          <video data-autoplay controls style="max-height:70vh" src="img/touch-action.mp4"></video>
           <figcaption style="font-size:75%"><a
               href="https://huijing.github.io/touch-action/">https://huijing.github.io/touch-action/</a></figcaption>
         </figure>
@@ -513,6 +510,7 @@
 
       <section>
         <h2>Scaling down a big, complex app to smaller screen</h2>
+        <video data-autoplay controls loop style="max-height:100vh" src="img/shrink.mp4"></video>
         <aside class="notes">
           <p>Just now Hui Jing mentioned how <code>min-width</code> may become problematic layout. Now I'll share a case
             where, despite potentially undesirable, perhaps is uneasy to change. And what workaround there may be to get
